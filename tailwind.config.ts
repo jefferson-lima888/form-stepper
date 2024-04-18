@@ -10,10 +10,13 @@ const config: Config = {
     extend: {
       colors: {
         grays: {
-          40: 'var(--grays-40)',
-          100: 'var(--grays-100)',
-        }
-      }
+          40: "var(--grays-40)",
+          100: "var(--grays-100)",
+        },
+      },
+      screens: {
+        xs: "360px",
+      },
     },
   },
   plugins: [],
