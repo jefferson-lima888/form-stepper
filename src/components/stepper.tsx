@@ -15,6 +15,12 @@ export const Stepper = () => {
       : setCurrentStep((prev) => prev + 1);
   };
 
+  const handleBack = () => {
+    if (currentStep > 1) {
+      setCurrentStep((prev) => prev - 1);
+    }
+  };
+
   return (
     <>
       <div className="grid grid-cols-4 justify-between rounded border border-gray-200 bg-white py-5 px-0">
@@ -26,7 +32,11 @@ export const Stepper = () => {
             }`}
           >
             <div className={"step"}>
-              {i + 1 < currentStep || complete ? <IconBadge /> : i + 1}
+              {i + 1 < currentStep || complete ? (
+                <IconBadge onClick={handleBack} />
+              ) : (
+                i + 1
+              )}
             </div>
             {/* <p className=" text-gray-400 mt-3 xs:text-sm xs:w-[4.5rem] xs: self-end">
               {step}
