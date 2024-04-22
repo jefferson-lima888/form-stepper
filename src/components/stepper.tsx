@@ -3,23 +3,26 @@ import { useState } from "react";
 import { TiTick } from "react-icons/ti";
 import "./stepper.css";
 import { IconBadge } from "./icon-badge";
+import { useStepper } from "@/contexts/StepperContext";
 
 export const Stepper = () => {
-  const steps = ["Carrinho", "Dados da conta", "Entrega ", "Pagar"];
-  const [currentStep, setCurrentStep] = useState(1);
-  const [complete, setComplete] = useState(false);
+  // const steps = ["Carrinho", "Dados da conta", "Entrega ou retirada", "Pagar"];
+  // const [currentStep, setCurrentStep] = useState(1);
+  // const [complete, setComplete] = useState(false);
 
-  const handleNext = () => {
-    currentStep === steps.length
-      ? setComplete(true)
-      : setCurrentStep((prev) => prev + 1);
-  };
+  // const handleNext = () => {
+  //   currentStep === steps.length
+  //     ? setComplete(true)
+  //     : setCurrentStep((prev) => prev + 1);
+  // };
 
-  const handleBack = () => {
-    if (currentStep > 1) {
-      setCurrentStep((prev) => prev - 1);
-    }
-  };
+  // const handleBack = () => {
+  //   if (currentStep > 1) {
+  //     setCurrentStep((prev) => prev - 1);
+  //   }
+  // };
+
+  const { steps, currentStep, complete, handleNext, handleBack } = useStepper();
 
   return (
     <>
@@ -38,9 +41,6 @@ export const Stepper = () => {
                 i + 1
               )}
             </div>
-            {/* <p className=" text-gray-400 mt-3 xs:text-sm xs:w-[4.5rem] xs: self-end">
-              {step}
-            </p> */}
             <p className=" text-gray-400 mt-3 text-sm w-[4.5rem] self-end relative left-3 md:left-[-0.75rem]">
               {step}
             </p>
